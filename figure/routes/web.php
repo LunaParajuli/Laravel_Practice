@@ -23,7 +23,10 @@ Route::middleware([
 });
 Route::post('/form/store', [App\Http\Controllers\FigureController::class, 'store'])->name('form.store');
 Route::get('/collect', [App\Http\Controllers\FigureController::class, 'collect'])->name('collect');
+Route::get('/form/{form}/delete', [App\Http\Controllers\FigureController::class, 'delete'])->name('form.delete');
 Route::get('/form/{form}/edit', [App\Http\Controllers\FigureController::class, 'edit'])->name('form.edit');
+
+
 //Route::get('/update', [App\Http\Controllers\FigureController::class, 'update'])->name('update');
 
 

@@ -14,7 +14,7 @@
                 @endforeach
             </ul>
         @endif
-        <form action="/form/store" method="post">
+        <form action="/form/{form}/delete,$figure->id" method="post">
             @csrf
             <div>
                 <label for="brand">Cloth Brand:</label>

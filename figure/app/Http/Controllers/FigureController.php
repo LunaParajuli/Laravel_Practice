@@ -42,10 +42,16 @@ class FigureController extends Controller
             'category'=>'',
             'type'=>'',
             'price'=>'required|decimal:0,2',
-            'description'=> ''
+            'description'=> 'required'
    ]);
   $newFigure = Figure::update($data);
    return redirect (route('collect'));
     }
 
+    public function delete($id){
+
+        $figures = Figure::find($id);
+        $figures = delete();
+        return redirect (route('collect'));
+    }
 }
