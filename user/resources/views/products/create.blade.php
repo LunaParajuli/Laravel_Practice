@@ -27,7 +27,7 @@
 
             <div>
                 <label for="image">Image:</label>
-                <input type="file" name="image">
+                <input type="file" name="image" onchangr="loadfile(e)">
                 @if ($errors->has('image'))
                     <span class="text-danger">{{ $errors->first('image') }}</span>
                 @endif

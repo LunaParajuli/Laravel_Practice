@@ -40,38 +40,44 @@ class ClientController extends Controller
                 'image' => $path . '/' . $filename, // Corrected path separator
             ]);
             $alldata=Client::get()->all();
-            return redirect()->route('products.index')->with('success', 'Product added successfully.');
+            return redirect()->route('products.index');
     }
 
     public function edit($id){
-        // $data=Client::find($id);
-        return view('products.edit');
+        $data=Client::find($id);
+        return view('products.edit',compact("data"));
     }
 
-    // public function update(Request $request,$id){
-    //     $request->validate([
-    //         'name' => 'required|string',
-    //         'detail' => 'required|string',
-    //         'image' => 'required',
-    //     ]);
+    public function update(Request $request,$id){
+        $request->validate([
+            'name' => 'required|string',
+            'detail' => 'required|string',
+            'image' => 'required',
+        ]);
 
-    //     // Update image
+        // Update image
 
-    //         $file = $request->image;
-    //         $extension = $request->image->getClientOriginalExtension();
-    //         $filename = time().'.'.$extension;
-    //         $path = 'products';
-    //         $file->move($path, $filename);
+            $file = $request->image;
+            $extension = $request->image->getClientOriginalExtension();
+            $filename = time().'.'.$extension;
+            $path = 'products';
+            $file->move($path, $filename);
 
 
-    //         $data = Client::find($id)->update([
-    //             'name' => $request->name,
-    //             'detail' => $request->detail,
-    //             'image' => $path . '/' . $filename, // Corrected path separator
-    //         ]);
-    //         $alldata=Client::get()->all();
-    //         return redirect()->route('products.index')->with('success', 'Product added successfully.');
-    // }
+            $data = Client::find($id)->update([
+                'name' => $request->name,
+                'detail' => $request->detail,
+                'image' => $path . '/' . $filename, // Corrected path separator
+            ]);
+            $alldata=Client::get()->all();
+            return redirect()->route('products.index');
+    }
+
+    public function destroy($id){
+        $data=Client::find($id);
+        $data->destroy($id);
+        return redirect()->route('products.index');
+    }
 }
 
 

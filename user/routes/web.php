@@ -31,6 +31,7 @@ Route::get('/products/create', [App\Http\Controllers\ClientController::class, 'c
 
  Route::get('/products/edit/{id}', [App\Http\Controllers\ClientController::class, 'edit'])->name('products.edit');
 
-//  Route::post('/products/update/{id}', [App\Http\Controllers\ClientController::class, 'update'])->name('products.update');
+  Route::post('/products/update/{id}', [App\Http\Controllers\ClientController::class, 'update'])->name('products.update');
 
 
+  Route::get('/products/delete/{id}', [App\Http\Controllers\ClientController::class, 'destroy'])->name('products.destroy');

@@ -23,7 +23,7 @@
                         <img src="{{ asset($ald->image) }}" style= "width:50px; height:50px;" alt="Img" />
                     </td>
                     <td><a href="{{ route('products.edit', $ald->id) }}">Edit</a></td>
-                    {{-- <td><a href="{{ route('cruds.destroy', $ald->id) }}">Delete</a></td> --}}
+                    <td><a href="{{ route('products.destroy', $ald->id) }}">Delete</a></td>
                 </tr>
             @endforeach
 

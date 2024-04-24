@@ -2,8 +2,8 @@
     <div>
         Products
     </div>
-    {{-- <div>
-        <form action="{{ route('products.update') }}" method="post" enctype="multipart/form-data">
+    <div>
+        <form action="{{ route('products.update', $data->id) }}" method="post" enctype="multipart/form-data">
             @csrf
             <div>
                 <label for="">Product Name:</label>
@@ -40,5 +40,5 @@
             </div>
 
         </form>
-    </div> --}}
+    </div>
 </x-app-layout>
